@@ -1,12 +1,13 @@
 package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
+@Table(name = "categories")
+@NamedQueries({
+        @NamedQuery(name = "Category.findAll", query = "select c from Categories c")
+})
 public class Categories {
     private int id;
     private String name;
