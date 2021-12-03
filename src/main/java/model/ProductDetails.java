@@ -1,15 +1,13 @@
-package Model;
+package model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-public class Orders {
+@Table(name = "product_details", schema = "bnshopdb", catalog = "")
+public class ProductDetails {
     private int id;
-    private String status;
+    private int stock;
     private Timestamp createdDate;
     private Timestamp updatedDate;
 
@@ -24,13 +22,13 @@ public class Orders {
     }
 
     @Basic
-    @Column(name = "status")
-    public String getStatus() {
-        return status;
+    @Column(name = "stock")
+    public int getStock() {
+        return stock;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     @Basic
@@ -58,12 +56,12 @@ public class Orders {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Orders orders = (Orders) o;
+        ProductDetails that = (ProductDetails) o;
 
-        if (id != orders.id) return false;
-        if (status != null ? !status.equals(orders.status) : orders.status != null) return false;
-        if (createdDate != null ? !createdDate.equals(orders.createdDate) : orders.createdDate != null) return false;
-        if (updatedDate != null ? !updatedDate.equals(orders.updatedDate) : orders.updatedDate != null) return false;
+        if (id != that.id) return false;
+        if (stock != that.stock) return false;
+        if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
+        if (updatedDate != null ? !updatedDate.equals(that.updatedDate) : that.updatedDate != null) return false;
 
         return true;
     }
@@ -71,7 +69,7 @@ public class Orders {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + stock;
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         return result;

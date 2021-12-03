@@ -1,13 +1,15 @@
-package Model;
+package model;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "product_details", schema = "bnshopdb", catalog = "")
-public class ProductDetails {
+public class Roles {
     private int id;
-    private int stock;
+    private String roleName;
     private Timestamp createdDate;
     private Timestamp updatedDate;
 
@@ -22,13 +24,13 @@ public class ProductDetails {
     }
 
     @Basic
-    @Column(name = "stock")
-    public int getStock() {
-        return stock;
+    @Column(name = "role_name")
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setStock(int stock) {
-        this.stock = stock;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     @Basic
@@ -56,12 +58,12 @@ public class ProductDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ProductDetails that = (ProductDetails) o;
+        Roles roles = (Roles) o;
 
-        if (id != that.id) return false;
-        if (stock != that.stock) return false;
-        if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
-        if (updatedDate != null ? !updatedDate.equals(that.updatedDate) : that.updatedDate != null) return false;
+        if (id != roles.id) return false;
+        if (roleName != null ? !roleName.equals(roles.roleName) : roles.roleName != null) return false;
+        if (createdDate != null ? !createdDate.equals(roles.createdDate) : roles.createdDate != null) return false;
+        if (updatedDate != null ? !updatedDate.equals(roles.updatedDate) : roles.updatedDate != null) return false;
 
         return true;
     }
@@ -69,7 +71,7 @@ public class ProductDetails {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + stock;
+        result = 31 * result + (roleName != null ? roleName.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         return result;

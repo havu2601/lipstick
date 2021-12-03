@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -7,10 +7,10 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Entity
-public class Categories {
+public class Accounts {
     private int id;
-    private String name;
-    private String status;
+    private String username;
+    private String password;
     private Timestamp createdDate;
     private Timestamp updatedDate;
 
@@ -25,23 +25,23 @@ public class Categories {
     }
 
     @Basic
-    @Column(name = "name")
-    public String getName() {
-        return name;
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Basic
-    @Column(name = "status")
-    public String getStatus() {
-        return status;
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Basic
@@ -69,13 +69,15 @@ public class Categories {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Categories that = (Categories) o;
+        Accounts accounts = (Accounts) o;
 
-        if (id != that.id) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
-        if (updatedDate != null ? !updatedDate.equals(that.updatedDate) : that.updatedDate != null) return false;
+        if (id != accounts.id) return false;
+        if (username != null ? !username.equals(accounts.username) : accounts.username != null) return false;
+        if (password != null ? !password.equals(accounts.password) : accounts.password != null) return false;
+        if (createdDate != null ? !createdDate.equals(accounts.createdDate) : accounts.createdDate != null)
+            return false;
+        if (updatedDate != null ? !updatedDate.equals(accounts.updatedDate) : accounts.updatedDate != null)
+            return false;
 
         return true;
     }
@@ -83,8 +85,8 @@ public class Categories {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         return result;

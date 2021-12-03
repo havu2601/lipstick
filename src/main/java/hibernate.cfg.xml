@@ -6,16 +6,16 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:8889</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <mapping class="Model.Accounts"/>
-        <mapping class="Model.Categories"/>
-        <mapping class="Model.Customers"/>
-        <mapping class="Model.Images"/>
-        <mapping class="Model.OrderDetails"/>
-        <mapping class="Model.Orders"/>
-        <mapping class="Model.ProductDetails"/>
-        <mapping class="Model.Products"/>
-        <mapping class="Model.Roles"/>
-        <mapping class="Model.Staffs"/>
+        <mapping class="model.Accounts"/>
+        <mapping class="model.Categories"/>
+        <mapping class="model.Customers"/>
+        <mapping class="model.Images"/>
+        <mapping class="model.OrderDetails"/>
+        <mapping class="model.Orders"/>
+        <mapping class="model.ProductDetails"/>
+        <mapping class="model.Products"/>
+        <mapping class="model.Roles"/>
+        <mapping class="model.Staffs"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

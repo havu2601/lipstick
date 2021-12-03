@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -7,9 +7,10 @@ import javax.persistence.Id;
 import java.sql.Timestamp;
 
 @Entity
-public class Roles {
+public class Categories {
     private int id;
-    private String roleName;
+    private String name;
+    private String status;
     private Timestamp createdDate;
     private Timestamp updatedDate;
 
@@ -24,13 +25,23 @@ public class Roles {
     }
 
     @Basic
-    @Column(name = "role_name")
-    public String getRoleName() {
-        return roleName;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Basic
@@ -58,12 +69,13 @@ public class Roles {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Roles roles = (Roles) o;
+        Categories that = (Categories) o;
 
-        if (id != roles.id) return false;
-        if (roleName != null ? !roleName.equals(roles.roleName) : roles.roleName != null) return false;
-        if (createdDate != null ? !createdDate.equals(roles.createdDate) : roles.createdDate != null) return false;
-        if (updatedDate != null ? !updatedDate.equals(roles.updatedDate) : roles.updatedDate != null) return false;
+        if (id != that.id) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (createdDate != null ? !createdDate.equals(that.createdDate) : that.createdDate != null) return false;
+        if (updatedDate != null ? !updatedDate.equals(that.updatedDate) : that.updatedDate != null) return false;
 
         return true;
     }
@@ -71,7 +83,8 @@ public class Roles {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (roleName != null ? roleName.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         return result;
